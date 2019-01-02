@@ -6,8 +6,7 @@ This function is also asynchronous. It accepts a callback
 function as an argument.
 */
 const getSensorReadings = (callback) => {
-sensor.read(11, 4, function (err, temperature,
-humidity) {
+sensor.read(11, 4, function (err, temperature,humidity) {
 if (err) {
 /*
 If there is an error, call the callback function
