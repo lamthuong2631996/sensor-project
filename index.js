@@ -14,12 +14,12 @@ app.use('/public', express.static(path.join(__dirname,
 app.get('/temperature', function (req, res) {
 res.send('<strong>' +
 getCachedSensorReadings.getTemperature().toFixed(1) +
-'</strong>' + '°C')
+'</strong>')
 })
 app.get('/humidity', function (req, res) {
 res.send('<strong>' +
 getCachedSensorReadings.getHumidity().toFixed(1) +
-'</strong>' + '%')
+'</strong>')
 })
 app.listen(3000, function () {
 console.log('Server listening on port 3000')
