@@ -46,3 +46,45 @@ responsive: true,
 maintainAspectRatio: false
 }
 })    
+const fetchTemperature = () => {
+    fetch('/temperature')
+    .then(results => {
+        /**
+* We want the results converted to json, so we use
+the fetch results' `json` method, which returns a promise
+with the JSON data instead of the string
+*/
+return results.json()
+})
+.then(data => {
+/**
+* In our server API route handler, the format of
+returned data was an object with a `value` property.
+* The value of the sensor reading is therefore
+available in `data.value`
+*/
+const temperatureDisplay =
+document.getElementById('temperature-display')
+/**
+* We add in the HTML tags on the front end script
+this time, leaving the backend to only provide us data
+*/
+temperatureDisplay.innerHTML = '<strong>' +
+data.value + '</strong>'
+})
+}
+/**
+* Repeat the same steps for the humidity API
+*/
+const fetchHumidity = () => {
+fetch('/humidity')
+.then(results => {
+return results.json()
+})
+.then(data => {
+const humidityDisplay =
+document.getElementById('humidity-display')
+humidityDisplay.innerHTML = '<strong>' + data.value
++ '</strong>'
+})
+}
