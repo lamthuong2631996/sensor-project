@@ -14,10 +14,11 @@ res.json({
 value: getCachedSensorReadings.getHumidity().toFixed(1)
 })
 })
+/*
 app.listen(3000, function () {
 console.log('Server listening on port 3000')
 })
-
+*/
 
 /**
 * Import the external dependencies required, for us this
